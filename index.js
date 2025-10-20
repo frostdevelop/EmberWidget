@@ -18,17 +18,16 @@ const path = require("path");
 const fs = require('fs');
 //const socket = require('ws');
 
+console.log('Welcome to Ember.\nA software by Frostbyte.\nThe code is licensed under AGPLv3.\n\nYou are running version 1.0');
 const tagError = '\x1B[4;1;41m[!]\x1B[0m ';
 const tagPuppet = '\x1B[3;1;45m[PUPPET]\x1B[0m ';
 const tagHttp = '\x1B[3;1;44m[HTTP]\x1B[0m ';
-
 /*
 const wss = new socket.Server({noServer:true});
 wss.on('connection',(ws,req)=>{
 	console.log(tagSocket+'Client connection from '+req.ip);
 });
 */
-
 let videoData = null;
 let feedClients = new Set();
 //let closing = false;
@@ -149,7 +148,6 @@ let feedClients = new Set();
 		}
 		server.close(()=>{
 			console.log(tagHttp+'Server closed.\nThanks for using Ember!')
-			process.exit();
 		});
 	});
 })();
