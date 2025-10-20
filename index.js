@@ -110,10 +110,10 @@ let feedClients = new Set();
 						const stream = document.getElementsByClassName('video-stream')[0];
 						return [stream.currentTime,+stream.paused];
 					}).then((t)=>{res.write('data:'+JSON.stringify([0,1,[Math.floor(t[0]),t[1]]])+'\n\n');});
-					console.log(tagHttp+'Feed client connected: '+req.connection.remoteAddress);
+					console.log(tagHttp+'Feed client connected: '+req.socket.remoteAddress);
 					feedClients.add(res);
 					req.on('close',()=>{
-						console.log(tagHttp+'Feed client disconnected: '+req.connection.remoteAddress);
+						console.log(tagHttp+'Feed client disconnected: '+req.socket.remoteAddress);
 						feedClients.delete(res);
 					});
 					break;
